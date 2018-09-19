@@ -1,0 +1,90 @@
+CREATE TABLE availability_by_productid_upc (
+
+    productid INT64,
+
+    upc INT64,
+
+    active BOOL,
+
+    bopsavail BOOL,
+
+    bossavail BOOL,
+
+    businessevent STRING(20),
+
+    catsavail BOOL,
+
+    catsqty INT64,
+
+    sddqty INT64,
+
+    bopsqty INT64,
+
+    correlationid STRING(20),
+
+    division INT64,
+
+    dropshipflag BOOL,
+
+    dropshipgiftwrappable BOOL,
+
+    esendavail BOOL,
+
+    esendreasoncode STRING(20),
+
+    fiaavail BOOL,
+
+    fiiareasoncode STRING(20),
+
+    fiisavail BOOL,
+
+    fiisreasoncode STRING(20),
+
+    giftmessageable BOOL,
+
+    giftwrappable BOOL,
+
+    groupcode STRING(20),
+
+    instoreeligibility STRING(20),
+
+    isdiscontinued BOOL,
+
+    lastmodified INT64,
+
+    lowavailability BOOL,
+
+    maxqty INT64,
+
+    ngfproductcode INT64,
+
+    ngfproductdate TIMESTAMP,
+
+    ordermethod STRING(20),
+
+    pricelevel INT64,
+
+    pricelevelid INT64,
+
+    productidtype INT64,
+
+    reasoncode STRING(20),
+
+    registrycategoryid STRING(20),
+
+    registrycatergorydescription STRING(20),
+
+    registryeligible STRING(20),
+
+    returnscode STRING(20),
+
+    sddavail BOOL,
+
+    shiprep STRING(20),
+
+    shiprepraw STRING(20),
+
+    vendorid INT64,
+
+    )PRIMARY KEY (productid, upc)
+

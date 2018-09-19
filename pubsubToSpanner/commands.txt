@@ -1,0 +1,46 @@
+# creating virtual env in windows
+<<phython home>>\python -m venv <<project path>>
+example
+C:\Users\b004536\AppData\Local\Programs\Python\Python37\python -m venv C:\Users\b004536\Desktop\GCP\function\pubsubToSpanner
+
+# PubSub topic 
+hub_realtime_pubsub_tofunctions
+
+
+
+# Check current sdk config
+gcloud config list
+
+# Check all configs
+gcloud config configurations list
+
+# Create another profile -- Optionl only if you already have a profile 
+gcloud config configurations create <<profile name>> 
+
+# set values in active profile
+gcloud config set account <<email id>>
+gcloud config set project <<project id>>
+
+# Delete a profile
+gcloud config configurations delete <<profile name>>
+
+#Change the profile
+gcloud config configurations activate 
+
+# Deploy functions
+gcloud beta functions deploy pubsub_trigger_spanner --runtime python37 --trigger-resource hub_realtime_pubsub_tofunctions --trigger-event google.pubsub.topic.publish --region us-east1
+
+
+
+
+
+
+# Mock Data generator 
+java -jar /home/b005364/mock-generator-bundled-0.0.2.jar --rows=1 --threads=1 --schema=/home/b005364/AvailabilityTemplate.JSON --project=mtech-daas-cdd-poc  --writer=csv  --csv.file=/appsdata/osp/elastic/datastore/CITI_CIM_DCR_10M.csv &
+
+
+
+java -jar mock-generator-bundled-0.0.2.jar --rows=5 --threads=1 --schema=AvailabilityTemplate.JSON --project=mtech-daas-cdd-poc --writer=json --json.file=Files/Availability.json
+
+
+java -jar mock-generator-bundled-0.0.2.jar --rows=5 --threads=1 --schema=AvailabilityTemplate.JSON --project=mtech-daas-cdd-poc --writer=pubsub --pubsub.topic=hub_realtime_pubsub_tofunctions 
